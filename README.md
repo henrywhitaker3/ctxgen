@@ -10,4 +10,7 @@ ctx = ctxgen.WithValue(ctx, "bongo", 5)
 
 value, ok := ctx.ValueOk[int](ctx, "bongo")
 fmt.Println(value, ok) // prints 5 true
+
+val := ctx.Value[int](ctx, "bingo")
+fmt.Println(val) // prints 0
 ```
