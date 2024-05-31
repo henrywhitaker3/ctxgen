@@ -29,3 +29,13 @@ func TestItRetrievesAValueFromContext(t *testing.T) {
 		t.Error("value retrieved from context is not 5")
 	}
 }
+
+func TestValueReturnsFalseWhenCtxIsNil(t *testing.T) {
+	val, ok := ctxgen.ValueOk[int](nil, "bongo")
+	if ok {
+		t.Fail()
+	}
+	if val != 0 {
+		t.Fail()
+	}
+}
